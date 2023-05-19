@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components'
 import { GlobalStyle } from '../src/styles/Global'
 import { ResetStyles } from '../src/styles/Reset'
 import { Header } from '../src/components/Header'
+import { Logo } from '../src/components/Logo'
 
 
 interface ThemeInterface {
@@ -24,6 +25,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Header />
+        <Logo />
         <Component {...pageProps} />
       </ThemeProvider>
     </>
