@@ -11,4 +11,7 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         padding: 0 14px;
     }
+    a, svg{
+        cursor:pointer;
+    }
 `
