@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
-import { GlobalStyle } from '../src/Global'
-import { ResetStyles } from '../src/Reset'
+import { GlobalStyle } from '../src/styles/Global'
+import { ResetStyles } from '../src/styles/Reset'
 
 
 
