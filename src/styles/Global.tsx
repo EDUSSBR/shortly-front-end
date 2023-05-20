@@ -1,6 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+    *{
+        box-sizing: border-box;
+    }
     div#__next, html,body{
         width:100%;
         height:100%;   
@@ -8,10 +11,9 @@ export const GlobalStyle = createGlobalStyle`
     body {
         font-family: 'Lexend deca';
         font-weight: 400;
-        box-sizing: border-box;
         padding: 0 14px;
     }
-    a, svg{
+    a, svg, button{
         cursor:pointer;
     }
 `

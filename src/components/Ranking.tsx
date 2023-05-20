@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import Image from "next/image"
 import trofeu from "../assets/trofeu.jpg"
-export function Ranking({ }) {
+export function Ranking({rankingData=[]}) {
     return <RankingContainer>
         <TitleContainer>
         <Image src={trofeu}  alt="troféu" width={56} height={50} />        
@@ -10,12 +10,9 @@ export function Ranking({ }) {
         </TitleContainer>
         <ScoreContainer>
         <ListContainer >
-
-        <ListItem type="1">asdasd</ListItem>
-        <ListItem type="1">asdasd</ListItem>
-        <ListItem type="1">asdasd</ListItem>
-        <ListItem type="1">asdasd</ListItem>
-        <ListItem type="1">asdasd</ListItem>
+        {rankingData.map(item=>{
+            return <ListItem key={item.id} type="1">{item.name} - {item.linksCount} links - {Number(item.visitCount).toLocaleString('pt-BR')} visualizações</ListItem>
+        })}
         </ListContainer>  
         </ScoreContainer>
     </RankingContainer>
