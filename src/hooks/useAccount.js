@@ -27,7 +27,6 @@ export function AccountContextProvider({ children }) {
                     secure: true, 
                     path: '/', 
                   })
-                router.push('/')
             },
             onError: (error) => {
                 setLoginError(error);
@@ -35,6 +34,7 @@ export function AccountContextProvider({ children }) {
             onSettled: () => {
                 setEmail("")
                 setPassword("")
+                router.push('/')
             }
         }
     );
@@ -68,6 +68,7 @@ export function AccountContextProvider({ children }) {
             setLoginError(() => []);
             e.preventDefault();
             await loginMutation.mutateAsync();
+            router.push('/')
             setIsLoadingLogin(()=>false)
         } catch (e) {
             setIsLoadingLogin(()=>false)
