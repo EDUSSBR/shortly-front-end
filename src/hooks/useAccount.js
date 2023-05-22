@@ -13,6 +13,7 @@ export function AccountContextProvider({ children }) {
     const [createAccountError, setCreateAccoountError] = useState([]);
     const [loginError, setLoginError] = useState([]);
     const router = useRouter()
+    const [isLoadingLogin, setIsLoadingLogin] = useState()
     const loginMutation = useMutation(() => services.makeLogin(email, password),
         {
             onSuccess: async (data) => {
@@ -63,10 +64,13 @@ export function AccountContextProvider({ children }) {
 
     async function handleLogin(e) {
         try {
+            setIsLoadingLogin(()=>true)
             setLoginError(() => []);
             e.preventDefault();
             await loginMutation.mutateAsync();
+            setIsLoadingLogin(()=>false)
         } catch (e) {
+            setIsLoadingLogin(()=>false)
         }
     }
     async function handleCreateAccount(e) {
@@ -81,7 +85,7 @@ export function AccountContextProvider({ children }) {
         } catch (e) {
         }
     }
-    return <AccountContext.Provider value={{ handleLogin, email, name, password, confirmedPassword, setEmail, setName, setPassword, setConfirmedPassword, handleCreateAccount, isLoadingAccountCreation: createAccountMutation.isLoading, isLoadingLogin: loginMutation.isLoading, createAccountError, loginError }}>
+    return <AccountContext.Provider value={{ handleLogin, email, name, password, confirmedPassword, setEmail, setName, setPassword, setConfirmedPassword, handleCreateAccount, isLoadingAccountCreation: createAccountMutation.isLoading, isLoadingLogin, createAccountError, loginError }}>
         {children}
     </AccountContext.Provider>
 }
