@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export function Input({placeholder}){
-    return <InputContainer type={"text"} placeholder={placeholder}></InputContainer>
+export function Input({placeholder, value, onChangeFunction, type="text"}){
+    return <InputContainer value={value} onChange={onChangeFunction} type={type} placeholder={placeholder}></InputContainer>
 }
 
 export const InputContainer = styled.input`
@@ -16,6 +16,7 @@ export const InputContainer = styled.input`
     color:#476e30;
     outline: none;
     transition: all 0.2s linear; 
+    padding-left:20px;
     :active, :focus, :hover{
         outline: 1px solid #78B159;
     }

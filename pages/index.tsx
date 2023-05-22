@@ -1,7 +1,44 @@
 import styled from 'styled-components'
-import { Ranking } from '../src/components/Ranking'
 import { ShortLinkForm } from '../src/components/ShortLinkForm'
 import { ShortLinkList } from '../src/components/ShortLinkList'
+import { useLink } from '../src/hooks/useLink'
+import { parseCookies } from 'nookies'
+import { services } from '../src/services'
+import { useEffect } from 'react'
+
+export default function Home({userInfo}) {
+  const {handleDeleteShortenLink,userInfoClient, setUserInfoClient,link, setLink,isLoadingLink,linkErrorMessage,  handleLinkCreation} = useLink()
+  const {setToken} = useLink()
+  useEffect(()=>{
+    console.log(userInfo)
+    setUserInfoClient(userInfo)
+    const {token} = parseCookies("token")
+    setToken(token)
+  }, [])
+  return <HomeContainer>
+    <ShortLinkForm isLoadingLink={isLoadingLink} linkErrorMessage={linkErrorMessage} link={link} setLink={setLink}  handleLinkCreation={handleLinkCreation}/>
+    <ShortLinkList handleDeleteShortenLink={handleDeleteShortenLink} userLinkList={userInfoClient?.shortenedUrls} />
+  </HomeContainer>
+}
+export async function getServerSideProps(ctx) {
+  const { token } = parseCookies(ctx)
+  if (!token) {
+    return {
+      redirect: {
+        destination: '/ranking',
+        permanent: false
+      }
+    }
+  }
+  const response = await services.getUserURL(token)
+  const userInfo = await response.json()
+  return {
+    props: {
+      userInfo
+    }
+
+  }
+}
 
 const HomeContainer = styled.div`
   display: flex;
@@ -15,11 +52,3 @@ const HomeContainer = styled.div`
     }
   }
 `
-
-export default function Home() {
-  return <HomeContainer>
-      {false && <Ranking />}
-      <ShortLinkForm />
-      <ShortLinkList />
-  </HomeContainer>
-}

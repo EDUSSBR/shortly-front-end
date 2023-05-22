@@ -1,9 +1,20 @@
 import styled from "styled-components";
 import {FaTrashAlt} from "react-icons/fa"
 
-export function ShortLinkList({text}){
+export function ShortLinkList({userLinkList, handleDeleteShortenLink}){
     return <ListContainer>
-        <ListItemContainer>
+        {userLinkList?.map(item=><ListItemContainer key={item.id}>
+            <InfoContainer>
+            <p>{item.url}</p>
+            <p>{item.shortUrl}</p>
+            <p>Quantidade de visitantes: {item.visitCount}</p>
+            </InfoContainer>
+            <IconContainer>
+                <FaTrashAlt onClick={()=>handleDeleteShortenLink(item.id)}/>
+            </IconContainer>
+        </ListItemContainer>
+        )}
+        {/* <ListItemContainer>
             <InfoContainer>
             <p>https:/google.com.br</p>
             <p>123kjl123kjklij212345</p>
@@ -32,17 +43,7 @@ export function ShortLinkList({text}){
             <IconContainer>
                 <FaTrashAlt />
             </IconContainer>
-        </ListItemContainer>
-        <ListItemContainer>
-            <InfoContainer>
-            <p>https:/google.com.br</p>
-            <p>123kjl123kjklij212345</p>
-            <p>Quantidade de visitantes: 210</p>
-            </InfoContainer>
-            <IconContainer>
-                <FaTrashAlt />
-            </IconContainer>
-        </ListItemContainer>
+        </ListItemContainer> */}
     </ListContainer>
 }
 
