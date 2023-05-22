@@ -11,6 +11,7 @@ export default function Home({userInfo}) {
   const {setToken} = useLink()
   useEffect(()=>{
     setUserInfoClient(userInfo)
+    //@ts-ignore
     const {token} = parseCookies("token")
     setToken(token)
   }, [])

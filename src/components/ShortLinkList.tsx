@@ -14,36 +14,6 @@ export function ShortLinkList({userLinkList, handleDeleteShortenLink}){
             </IconContainer>
         </ListItemContainer>
         )}
-        {/* <ListItemContainer>
-            <InfoContainer>
-            <p>https:/google.com.br</p>
-            <p>123kjl123kjklij212345</p>
-            <p>Quantidade de visitantes: 210</p>
-            </InfoContainer>
-            <IconContainer>
-                <FaTrashAlt />
-            </IconContainer>
-        </ListItemContainer>
-        <ListItemContainer>
-            <InfoContainer>
-            <p>https:/google.com.br</p>
-            <p>123kjl123kjklij212345</p>
-            <p>Quantidade de visitantes: 210</p>
-            </InfoContainer>
-            <IconContainer>
-                <FaTrashAlt />
-            </IconContainer>
-        </ListItemContainer>
-        <ListItemContainer>
-            <InfoContainer>
-            <p>https:/google.com.br</p>
-            <p>123kjl123kjklij212345</p>
-            <p>Quantidade de visitantes: 210</p>
-            </InfoContainer>
-            <IconContainer>
-                <FaTrashAlt />
-            </IconContainer>
-        </ListItemContainer> */}
     </ListContainer>
 }
 
