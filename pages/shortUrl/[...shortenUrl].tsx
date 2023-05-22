@@ -4,7 +4,7 @@ export default function Page({ }) {
   return
 }
 export async function getServerSideProps(ctx) {
-  const response = await services.redirect(ctx.params.shortenUrl)
+  const response = await services.redirect(ctx.params.shortenUrl[0])
   if (response.status !== 301) {
     return {
       redirect: {
