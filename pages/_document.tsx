@@ -1,6 +1,7 @@
 import Document, { DocumentContext, DocumentInitialProps, Head, Html, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
-
+import { ResetStyles } from '../styles/Reset';
+import { GlobalStyle } from '../styles/Global';
 export default class MyDocument extends Document {
   static async getInitialProps(
     ctx: DocumentContext
@@ -39,6 +40,8 @@ export default class MyDocument extends Document {
           <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200;400;500;700&display=swap" rel="stylesheet" />
         </Head>
         <body>
+          <ResetStyles />
+          <GlobalStyle />
           <Main />
           <NextScript />
         </body>

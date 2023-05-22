@@ -23,7 +23,7 @@ export function ShortLinkForm({link,linkErrorMessage, setLink, isLoadingLink, ha
 }
 
 const FormButton = styled(ButtonContainer)`
-    margin: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 15px;
     background-color: ${({isLoadingLink})=> isLoadingLink ? 'white':"#5D9040" }
 `
 const ErrorMessageItem = styled.p`
