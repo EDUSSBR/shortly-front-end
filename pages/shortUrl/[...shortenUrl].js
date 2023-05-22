@@ -5,18 +5,16 @@ export default function Page({ }) {
 }
 export async function getServerSideProps(ctx) {
   try {
-    const response = await services.redirect(ctx.params.shortenUrl[0])
-    if (response.status !== 301) {
-      throw ""
-    }
-    const { url } = await response.json()
+    const url = await (await services.redirect(ctx.params.shortenUrl[0])).text()
+    console.log(url)
     return {
       redirect: {
         destination: url,
-        permanent: false,
+        permanent: true,
       }
     };
   } catch (e) {
+    console.log(e)
     return {
       redirect: {
         destination: '/ranking',

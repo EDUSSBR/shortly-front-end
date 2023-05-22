@@ -30,7 +30,7 @@
     "**/*.tsx",
     "src/services.js",
     ".next/types/**/*.ts"
-  ],
+, "pages/shortUrl/[...shortenUrl].js", "src/components/ShortLinkList.jsx", "src/components/ShortLinkForm.jsx", "src/components/Ranking.jsx", "src/components/Button.jsx", "src/components/Input.jsx", "src/components/Header.jsx"  ],
   "exclude": [
     "node_modules"
   ]
