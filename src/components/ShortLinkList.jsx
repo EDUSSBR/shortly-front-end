@@ -3,7 +3,12 @@ import {FaTrashAlt} from "react-icons/fa"
 
 export function ShortLinkList({userLinkList, handleDeleteShortenLink}){
     return <ListContainer>
-        {userLinkList?.map(item=><ListItemContainer key={item.id}>
+        {userLinkList?.map(item=><ListItemContainer onClick={()=>{
+            navigator.clipboard.writeText(`https://shortly-front-end-eight.vercel.app/shortUrl/${item.shortUrl}`)
+            .then(() => {
+              console.log('ID copiado para a área de transferência:', item.shortUrl);
+            })
+        }} key={item.id}>
             <InfoContainer>
             <p>{item.url}</p>
             <p>{item.shortUrl}</p>
@@ -18,6 +23,7 @@ export function ShortLinkList({userLinkList, handleDeleteShortenLink}){
 }
 
 const ListItemContainer = styled.li`
+    cursor:pointer;
     display:flex;
     width:100%;
     /* margin: 0 auto; */
