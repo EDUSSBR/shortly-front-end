@@ -12,7 +12,6 @@ export function LinkContextProvider({ children }) {
     const [deleteErrorMessage, setDeleteErrorMessage] = useState("")
     const [idForDeletion, setIdForDeletion] = useState("")
     const router = useRouter()
-    console.log(token)
     useEffect(() => {
         const tokenFromCookie = parseCookies()
         if (!tokenFromCookie) {
@@ -72,19 +71,16 @@ export function LinkContextProvider({ children }) {
             setLinkErrorMessage("")
         } catch (e) {
             setLinkErrorMessage("Houve um erro, tente novamente.")
-            console.log(e)
         }
     }
     async function handleDeleteShortenLink(id) {
         setDeleteErrorMessage("")
-        console.log('entrou')
         setIdForDeletion(id)
         try {
             await deleteShortenLinkMutation.mutateAsync()
             setDeleteErrorMessage("")
         } catch (e) {
             setDeleteErrorMessage("Há algum problema com seu link, use um formato válido")
-            console.log(e)
         }
 
     }

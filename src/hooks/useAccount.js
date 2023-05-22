@@ -21,7 +21,6 @@ export function AccountContextProvider({ children }) {
                     throw ["Ocorreu um erro, verifique as informações e tente novamente."]
                 }
                 const { token } = await data.json()
-                console.log(token)
                 setCookie(null, 'token', token, {
                     maxAge: 3600,   
                     secure: true, 
@@ -68,7 +67,6 @@ export function AccountContextProvider({ children }) {
             e.preventDefault();
             await loginMutation.mutateAsync();
         } catch (e) {
-            console.log(e)
         }
     }
     async function handleCreateAccount(e) {
@@ -81,7 +79,6 @@ export function AccountContextProvider({ children }) {
             }
             await createAccountMutation.mutateAsync();
         } catch (e) {
-            console.log(e)
         }
     }
     return <AccountContext.Provider value={{ handleLogin, email, name, password, confirmedPassword, setEmail, setName, setPassword, setConfirmedPassword, handleCreateAccount, isLoadingAccountCreation: createAccountMutation.isLoading, isLoadingLogin: loginMutation.isLoading, createAccountError, loginError }}>

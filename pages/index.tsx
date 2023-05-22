@@ -10,7 +10,6 @@ export default function Home({userInfo}) {
   const {handleDeleteShortenLink,userInfoClient, setUserInfoClient,link, setLink,isLoadingLink,linkErrorMessage,  handleLinkCreation} = useLink()
   const {setToken} = useLink()
   useEffect(()=>{
-    console.log(userInfo)
     setUserInfoClient(userInfo)
     const {token} = parseCookies("token")
     setToken(token)
