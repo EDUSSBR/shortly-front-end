@@ -13,7 +13,7 @@ export default function Cadastro({}) {
   width="60"
   ariaLabel="vortex-loading"
   wrapperClass="vortex-wrapper"
-  wrapperStyle={{marginBottom:190, marginTop:100}}
+  wrapperStyle={{marginBottom:"190", marginTop:"100"}}
   colors={['red', 'green', 'black', 'yellow', 'orange', 'purple']}
 />:
 (  <>  {createAccountError?.length>0 && createAccountError?.map(item=><ErrorMessage key={item}>{item}</ErrorMessage>) }

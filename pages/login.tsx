@@ -13,7 +13,7 @@ export default function Login() {
     width="60"
     ariaLabel="vortex-loading"
     wrapperClass="vortex-wrapper"
-    wrapperStyle={{marginBottom:70, marginTop:40}}
+    wrapperStyle={{marginBottom:"70", marginTop:"40"}}
     colors={['red', 'green', 'black', 'yellow', 'orange', 'purple']}
   />:
     (<>  {loginError?.length>0 && loginError?.map(item=><ErrorMessage key={item}>{item}</ErrorMessage>) }
