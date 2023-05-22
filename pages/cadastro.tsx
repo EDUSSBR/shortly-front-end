@@ -7,7 +7,7 @@ import { Vortex } from 'react-loader-spinner'
 export default function Cadastro({}) {
   const {name, email, password,confirmedPassword, setName, setEmail, setPassword, setConfirmedPassword, handleCreateAccount, isLoadingAccountCreation, createAccountError} = useAccount()
 
-  return  <LoginContainer autocomplete="off">{isLoadingAccountCreation ? <Vortex
+  return  <LoginContainer>{isLoadingAccountCreation ? <Vortex
   visible={true}
   height="60"
   width="60"
