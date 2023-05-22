@@ -8,7 +8,6 @@ import { LinkContextProvider } from '../src/hooks/useLink'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
-
 const queryClient = new QueryClient()
 export default function App({ Component, pageProps }: AppProps) {
   return (
