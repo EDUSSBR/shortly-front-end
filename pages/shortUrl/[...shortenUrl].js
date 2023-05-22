@@ -1,11 +1,21 @@
 import { services } from "../../src/services"
 
 export default function Page({ }) {
-  return
+  return <></>
 }
 export async function getServerSideProps(ctx) {
   try {
-    const url = await (await services.redirect(ctx.params.shortenUrl[0])).text()
+    let url = await (await services.redirect(ctx.params.shortenUrl[0])).text()
+    console.log(url)
+    if (url === "Not Found") {
+      return {
+        notFound: true,
+      };
+    };
+    if (!url.includes('http')){
+      url = "http://"+url
+    }
+    
     console.log(url)
     return {
       redirect: {
@@ -15,11 +25,5 @@ export async function getServerSideProps(ctx) {
     };
   } catch (e) {
     console.log(e)
-    return {
-      redirect: {
-        destination: '/ranking',
-        permanent: false
-      }
-    }
   }
 }
