@@ -6,7 +6,7 @@ import { ErrorMessage } from './cadastro'
 import { Vortex } from 'react-loader-spinner'
 
 export default function Login() {
-  const {email, password, setEmail, setPassword, handleLogin, isLoadingLogin=false, loginError} = useAccount()
+  const {email, password, setEmail, setPassword, handleLogin, isLoadingLogin, loginError} = useAccount()
   return <LoginContainer>{isLoadingLogin ? <Vortex
     visible={true}
     height="60"
